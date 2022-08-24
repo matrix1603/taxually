@@ -7,15 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Taxually.Clients\Taxually.Processors.csproj" />
     <ProjectReference Include="..\Taxually.Processors\Taxually.Processors.csproj" />
     <ProjectReference Include="..\Taxually.Repositories\Taxually.Repositories.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\6.0.7\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

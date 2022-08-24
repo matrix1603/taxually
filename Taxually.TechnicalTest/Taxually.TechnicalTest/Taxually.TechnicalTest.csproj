@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Taxually.Processors\Taxually.Processors.csproj" />
     <ProjectReference Include="..\Taxually.Services\Taxually.Services.csproj" />
   </ItemGroup>
 
