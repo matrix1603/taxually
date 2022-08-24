@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxually.TechnicalTest", "Taxually.TechnicalTest\Taxually.TechnicalTest.csproj", "{A119A885-BCD4-473B-861A-480AA3C87EB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxually.TechnicalTest", "Taxually.TechnicalTest\Taxually.TechnicalTest.csproj", "{A119A885-BCD4-473B-861A-480AA3C87EB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxually.Services", "Taxually.Services\Taxually.Services.csproj", "{BD8CAA52-62F1-4D51-AC71-0D2925D17D09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxually.Repositories", "Taxually.Repositories\Taxually.Repositories.csproj", "{120A3534-FEE8-4F1A-8D83-B96D4940BA27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxually.Models", "Taxually.Models\Taxually.Models.csproj", "{D8502A8F-60D5-4150-9B50-E9E5F87024FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxually.Services.Tests", "Taxually.Services.Tests\Taxually.Services.Tests.csproj", "{1C0706A2-26B6-40BB-8952-BFAAB80630EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taxually.Processors", "Taxually.Processors\Taxually.Processors.csproj", "{49C11EC5-FA99-4C44-AE4B-BCE7570292F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{A119A885-BCD4-473B-861A-480AA3C87EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A119A885-BCD4-473B-861A-480AA3C87EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A119A885-BCD4-473B-861A-480AA3C87EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD8CAA52-62F1-4D51-AC71-0D2925D17D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD8CAA52-62F1-4D51-AC71-0D2925D17D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD8CAA52-62F1-4D51-AC71-0D2925D17D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD8CAA52-62F1-4D51-AC71-0D2925D17D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{120A3534-FEE8-4F1A-8D83-B96D4940BA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120A3534-FEE8-4F1A-8D83-B96D4940BA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120A3534-FEE8-4F1A-8D83-B96D4940BA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120A3534-FEE8-4F1A-8D83-B96D4940BA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8502A8F-60D5-4150-9B50-E9E5F87024FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8502A8F-60D5-4150-9B50-E9E5F87024FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8502A8F-60D5-4150-9B50-E9E5F87024FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8502A8F-60D5-4150-9B50-E9E5F87024FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0706A2-26B6-40BB-8952-BFAAB80630EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0706A2-26B6-40BB-8952-BFAAB80630EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0706A2-26B6-40BB-8952-BFAAB80630EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0706A2-26B6-40BB-8952-BFAAB80630EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C11EC5-FA99-4C44-AE4B-BCE7570292F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C11EC5-FA99-4C44-AE4B-BCE7570292F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C11EC5-FA99-4C44-AE4B-BCE7570292F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C11EC5-FA99-4C44-AE4B-BCE7570292F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

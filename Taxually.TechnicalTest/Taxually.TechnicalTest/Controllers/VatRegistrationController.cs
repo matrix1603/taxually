@@ -1,62 +1,44 @@
-﻿using System.Text;
-using System.Xml.Serialization;
+﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Taxually.Processors.Models.Requests;
+using Taxually.Services.VatRegistration;
 
 namespace Taxually.TechnicalTest.Controllers
 {
+    //// TODO Add tests for Taxually.Processors and component testing.
+    //// TODO Implement OpenTelemetry
+    //// TODO Implement Jaeger Tracing
+    //// TODO Implement Retry, Circuit Breaker and Timeout policies using Poly nuget package
+    //// TODO CancellationToken cancellationToken
+    //// TODO Error handling
+    //// TODO Logging
+    //// TODO Use IHttpClientFactory
+    //// TODO Improve messages
+    //// TODO Remove the dependency of HttpStatusCode from services
+    //// TODO Use Cache
+    ///  TODO Implement docker
+
     [Route("api/[controller]")]
     [ApiController]
     public class VatRegistrationController : ControllerBase
     {
+        private readonly IVatRegistrationService _vatRegistrationService;
+
+        public VatRegistrationController(IVatRegistrationService vatRegistrationService)
+        {
+            _vatRegistrationService = vatRegistrationService;
+        }
         /// <summary>
         /// Registers a company for a VAT number in a given country
         /// </summary>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] VatRegistrationRequest request)
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IActionResult))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IActionResult))]
+        public async Task<IActionResult> Post([FromBody] VatRegistrationRequest request)
         {
-            switch (request.Country)
-            {
-                case "GB":
-                    // UK has an API to register for a VAT number
-                    var httpClient = new TaxuallyHttpClient();
-                    httpClient.PostAsync("https://api.uktax.gov.uk", request).Wait();
-                    break;
-                case "FR":
-                    // France requires an excel spreadsheet to be uploaded to register for a VAT number
-                    var csvBuilder = new StringBuilder();
-                    csvBuilder.AppendLine("CompanyName,CompanyId");
-                    csvBuilder.AppendLine($"{request.CompanyName}{request.CompanyId}");
-                    var csv = Encoding.UTF8.GetBytes(csvBuilder.ToString());
-                    var excelQueueClient = new TaxuallyQueueClient();
-                    // Queue file to be processed
-                    excelQueueClient.EnqueueAsync("vat-registration-csv", csv).Wait();
-                    break;
-                case "DE":
-                    // Germany requires an XML document to be uploaded to register for a VAT number
-                    using (var stringwriter = new StringWriter())
-                    {
-                        var serializer = new XmlSerializer(typeof(VatRegistrationRequest));
-                        serializer.Serialize(stringwriter, this);
-                        var xml = stringwriter.ToString();
-                        var xmlQueueClient = new TaxuallyQueueClient();
-                        // Queue xml doc to be processed
-                        xmlQueueClient.EnqueueAsync("vat-registration-xml", xml).Wait();
-                    }
-                    break;
-                default:
-                    throw new Exception("Country not supported");
+          var result = await _vatRegistrationService.Register(request);
 
-            }
-            return Ok();
+          return StatusCode((int)result.StatusCode, result.Message);
         }
-    }
-
-    public class VatRegistrationRequest
-    {
-        public string CompanyName { get; set; }
-        public string CompanyId { get; set; }
-        public string Country { get; set; }
     }
 }
