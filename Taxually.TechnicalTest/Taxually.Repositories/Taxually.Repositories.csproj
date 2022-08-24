@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Taxually.Clients\Taxually.Processors.csproj" />
     <ProjectReference Include="..\Taxually.Models\Taxually.Models.csproj" />
   </ItemGroup>
 
